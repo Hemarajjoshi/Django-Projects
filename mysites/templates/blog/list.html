@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} My blog {% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+
+    {% for post in posts %}
+
+    <h2>
+        <a href="{{post.get_absolute_url}}">
+            {{post.title |upper}}
+        </a>
+    </h2>
+    <p class="date">
+        Published on {{post.publish}} by {{post.author}}
+    </p>
+
+    {{post.body |truncatewords:30|linebreaks}}
+    
+    {% endfor %}
+
+    {% include "blog/pagination.html" with page=posts %}
+
+    {% endblock %}
+
+ 
+
+</body>
+</html>

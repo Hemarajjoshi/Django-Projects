@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#content {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#sidebar {
+    width: 25%;
+    float: right;
+    padding: 20px;
+    background-color: #e4e4e4;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar h2 {
+    margin-top: 0;
+}
+
+#sidebar p {
+    margin: 0;
+}
