@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Bookmark - Social Site {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    
+    <nav>
+      <div class="navbar-left">
+        <a href="{% url 'dashboard' %}"> Bookmark</a>
+      </div>
+
+      {% if request.user.is_authenticated %}
+      <div class="navbar-middle">
+        <a href="#dashboard" id="dashboard-link">Dashboard</a>
+        <a href="#images" id="images-link">Images</a>
+        <a href="#people" id="people-link">People</a>
+      </div>
+      {% endif %}
+      <div class="navbar-right">
+        {% if request.user.is_authenticated %}
+        <span>Hello {{user.first_name | default:request.user.username }}</span>
+        <button>
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Logout" />
+          </form>
+        </button>
+      </div>
+      {% else %}
+      <button><a href="{% url 'login' %}">Login</a></button>
+      <button><a href="{% url 'signup' %}">Signup</a></button>
+      {% endif %}
+    </nav>
+
+    <header>
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li class="{{message.tags}}">
+          {{ message|safe }}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </header>
+
+    {% block content %}
+
+    <div class="dashboard">
+      Welcome to Bookmark! Your social site starts here.
+
+      {% if request.user.is_authenticated %}
+        <div>
+          Want to change the detail click below:
+          <button value="Change details"><a href="{% url 'edit' %}"></a></button>
+        </div>
+      {% endif %}
+    </div>
+
+    {% endblock %}
+  </body>
+</html>

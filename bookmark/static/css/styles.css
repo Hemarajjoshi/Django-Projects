@@ -1,0 +1,80 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+        }
+        nav .navbar-left {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav .navbar-left a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        nav .navbar-middle {
+            display: flex;
+            gap: 20px;
+        }
+        nav .navbar-middle a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        nav .navbar-middle a.active {
+            background-color: #333;
+            font-weight: bold;
+        }
+        nav .navbar-middle a.selected {
+            font-weight: bolder;
+            text-decoration: underline;
+            color: black;
+        }
+        nav .navbar-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        nav .navbar-right span {
+            font-size: 16px;
+        }
+        nav .navbar-right button {
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        nav .navbar-right button:hover {
+            background-color: #e60000;
+        }
+        .dashboard {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
